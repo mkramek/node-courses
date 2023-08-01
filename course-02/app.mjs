@@ -1,7 +1,7 @@
-const readline = require("node:readline");
-const fs = require("node:fs");
-const { program } = require("commander");
-require("colors");
+import readline from "node:readline";
+import fs from "node:fs";
+import { program } from "commander";
+import "colors";
 
 program.option(
   "-f, --file [name]",

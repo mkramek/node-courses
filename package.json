@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "course01": "node course-01/app.js",
-    "course02": "node course-02/app.js",
-    "course03": "node course-03/app.js",
+    "course02": "node course-02/app.mjs",
+    "course03": "nodemon course-03/app.js",
     "course04": "node course-04/app.js",
     "course05": "node course-05/app.js",
     "course06": "node course-06/app.js",
@@ -24,6 +24,10 @@
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^11.0.0",
-    "date-fns": "^2.30.0"
+    "date-fns": "^2.30.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

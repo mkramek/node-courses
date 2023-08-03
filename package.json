@@ -7,7 +7,7 @@
     "course01": "node course-01/app.js",
     "course02": "node course-02/app.mjs",
     "course03": "nodemon course-03/app.js",
-    "course04": "node course-04/app.js",
+    "course04": "cross-env DEBUG=course-04:* node course-04/bin/www",
     "course05": "node course-05/app.js",
     "course06": "node course-06/app.js",
     "course07": "node course-07/app.js",
@@ -24,10 +24,18 @@
   "dependencies": {
     "colors": "^1.4.0",
     "commander": "^11.0.0",
+    "cookie-parser": "^1.4.6",
     "date-fns": "^2.30.0",
-    "express": "^4.18.2"
+    "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "joi": "^17.9.2",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^3.0.1"
   }
 }

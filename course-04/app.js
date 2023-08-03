@@ -43,3 +43,11 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+/*
+  SCHEMAT DZIAŁANIA na danych wrażliwych
+  1. Wysyłamy zapytanie do serwera z tokenem autoryzującym (np. Bearer)
+  2. Serwer przyjmuje zapytanie i wykorzystuje posiadany klucz API do płatnej usługi
+  3. Serwer zwraca wynik do frontendu ze wszysktimi informacjami potrzebnymi do wyświetlenia gotowych danych
+  4. Frontend wypluwa wynik, nie tykając klucza API, gdyż cała operacja zaszła bezpiecznie, po stronie serwera.
+*/

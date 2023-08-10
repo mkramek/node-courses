@@ -9,7 +9,7 @@
     "course03": "nodemon course-03/app.js",
     "course04": "cross-env DEBUG=course-04:* node course-04/bin/www",
     "course05": "node course-05/app.js",
-    "course06": "node course-06/app.js",
+    "course06": "nodemon course-06/app.js",
     "course07": "node course-07/app.js",
     "course08": "node course-08/app.js",
     "course09": "node course-09/app.js",
@@ -32,6 +32,7 @@
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "joi": "^17.9.2",
+    "mongoose": "^7.4.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {

@@ -8,6 +8,7 @@ const app = express();
 const contactRoutes = require("./routes/contacts.routes");
 const authRoutes = require("./routes/auth.routes");
 const uploadRoutes = require("./routes/upload.routes");
+const emailRoutes = require("./routes/email.routes");
 const config = require("./config/config");
 
 const PORT = process.env.PORT || 4000;
@@ -20,7 +21,7 @@ const connection = mongoose.connect(process.env.DATABASE_URL, {
 app.use(express.json());
 require("./config/passport");
 
-app.use("/api/v1", uploadRoutes, contactRoutes);
+app.use("/api/v1", uploadRoutes, contactRoutes, emailRoutes);
 app.use("/api/v1/auth", authRoutes);
 
 app.use((req, res, next) => {

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <title>SocketIO</title>
+  </head>
+  <body>
+    <form id="msg_form">
+      <div class="field">
+        <label>Nazwa</label>
+        <input required type="text" id="msg_name" />
+      </div>
+      <div class="field">
+        <label>Wiadomość</label>
+        <textarea required rows="4" id="msg_txt"></textarea>
+      </div>
+      <button type="submit" id="msg_btn">Wyślij</button>
+    </form>
+    <div class="info_container">
+      <div class="users_info">
+        <p>Aktywni użytkownicy</p>
+        <div id="users"></div>
+      </div>
+      <div id="board"></div>
+    </div>
+    <script>
+      let messages = [];
+      let users = {};
+
+      const renderListOfMessages = (message) => {
+        messages.push(message);
+        const boardHTML = `<div class="msg_container">${messages
+          .map(
+            (msgObj) =>
+              `<div class="msg_box"><p class="author">${msgObj.name}</p><p class="message">${msgObj.message}</p></div>`
+          )
+          .join("")}</div>`;
+        board.innerHTML = boardHTML;
+      };
+
+      const renderListOfUsers = (user) => {
+        users = user;
+        const usersHTML = Object.values(users)
+          .map((name) => `<div class="user_box">${name}</div>`)
+          .join("");
+        usersList.innerHTML = usersHTML;
+      };
+
+      const usersList = document.getElementById("users");
+      const board = document.getElementById("board");
+      const userMessage = document.getElementById("msg_txt");
+      const userName = document.getElementById("msg_name");
+      const sendButton = document.getElementById("msg_btn");
+      const msgForm = document.getElementById("msg_form");
+      const socket = io.connect("/");
+      socket.on("user", renderListOfUsers);
+      socket.on("message", renderListOfMessages);
+
+      const sendUserMessage = () => {
+        let name = userName.value;
+        const message = userMessage.value;
+
+        if (message === "" || name === "") {
+          return;
+        }
+
+        socket.emit("message", {
+          message,
+          name,
+        });
+
+        userMessage.value = "";
+        userMessage.focus();
+      };
+
+      msgForm.addEventListener("submit", (ev) => {
+        ev.preventDefault();
+        const login = userName.value;
+        const contents = userMessage.value;
+        if (!!contents.trim() && !!login.trim()) sendUserMessage();
+      });
+
+      const pressEnterKey = (e) => {
+        if (e.keyCode === 13) {
+          sendUserMessage();
+        }
+      };
+    </script>
+  </body>
+</html>

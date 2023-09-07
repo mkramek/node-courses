@@ -1,0 +1,91 @@
+.msg_container {
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: .5rem;
+}
+
+.msg_box {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    background: linear-gradient(to right, firebrick, darkorange);
+    border-radius: 15px;
+}
+
+.msg_box > .author {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: right;
+}
+
+.msg_box > .message {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.msg_box p {
+    padding: .1rem 1rem;
+    color: white;
+}
+
+#msg_form {
+    width: 60rem;
+    margin: .5rem auto;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+}
+
+#msg_form .field {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .2rem;
+}
+
+#msg_btn {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    background: linear-gradient(to top left, black, navy);
+    color: white;
+    border: none;
+    border-radius: 15px;
+}
+
+#msg_btn:hover {
+    color: black;
+    background: linear-gradient(to top left, white, lightblue);
+    cursor: pointer;
+}
+
+.users_info {
+    display: inline-block;
+    width: calc(33% - 2rem);
+    padding: 1rem;
+}
+
+#board {
+    display: inline-block;
+    width: 66%;
+}
+
+.info_container {
+    width: 60rem;
+    margin: 0 auto;
+}
+
+#users {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: .25rem;
+}
+
+div#users div.user_box {
+    padding: .5rem 1rem;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 15px;
+}
